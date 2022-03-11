@@ -24,22 +24,32 @@
 
 using namespace std;
 
+/*
+由于栈和队列的出入顺序不同，需要另外一个栈作为元素中转存储使用
+*/
 class CQueue {
 public:
   stack<int> A, B;
   CQueue() {}
 
+  //加入队尾，将数字value直接入栈A
   void appendTail(int value) { A.push(value); }
 
   int deleteHead() {
+
+    //当栈B不为空时：B中有已完成倒序入栈元素，直接返回B栈顶元素
     if (!B.empty()) {
       int tmp = B.top();
       B.pop();
       return tmp;
     }
+
+    //否则A为空时：A，B为空，无元素返回-1
     if (A.empty()) {
       return -1;
     }
+
+    //否则栈A元素转移至栈B，实现倒序，返回B栈顶元素
     while (!A.empty()) {
       int tmp = A.top();
       A.pop();
