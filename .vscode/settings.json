@@ -45,7 +45,6 @@
         "streambuf": "cpp",
         "typeinfo": "cpp"
     },
-    "clang-format.executable": "C:/Users/DELL/.vscode/extensions/ms-vscode.cpptools-1.9.5/LLVM/bin/clang-format.exe",
     "[cpp]": {
         "editor.defaultFormatter": "xaver.clang-format"
     },

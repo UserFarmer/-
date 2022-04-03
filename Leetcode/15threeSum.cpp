@@ -14,19 +14,19 @@
 using namespace std;
 
 class Solution {
-public:
+ public:
   vector<vector<int>> threeSum(vector<int> &nums) {
     vector<vector<int>> ans;
-    if (nums.size() < 3) //当数组元素不足时
+    if (nums.size() < 3)  //当数组元素不足时
       return ans;
 
     sort(nums.begin(), nums.end());
 
     for (int i = 0; i < nums.size(); i++) {
-      if (nums[i] > 0) //当排序后的最小元素也大于0时
+      if (nums[i] > 0)  //当排序后的最小元素也大于0时
         return ans;
 
-      if (i > 0 && nums[i] == nums[i - 1]) //去重：重复的数字，跳过
+      if (i > 0 && nums[i] == nums[i - 1])  //去重：重复的数字，跳过
         continue;
 
       int left = i + 1;
@@ -41,10 +41,8 @@ public:
           ans.push_back(vector<int>{nums[i], nums[left], nums[right]});
           left++;
           right--;
-          while (left < right && nums[left] == nums[left - 1])
-            left++;
-          while (left < right && nums[right] == nums[right + 1])
-            right--;
+          while (left < right && nums[left] == nums[left - 1]) left++;
+          while (left < right && nums[right] == nums[right + 1]) right--;
         }
       }
     }
@@ -57,8 +55,7 @@ int main() {
   vector<int> nums = {-1, 0, 1, 2, -1, -4};
   vector<vector<int>> ans = s.threeSum(nums);
   for (vector<vector<int>>::iterator it = ans.begin(); it != ans.end(); ++it) {
-    for (int i = 0; i < (*it).size(); i++)
-      cout << (*it)[i] << ' ';
+    for (int i = 0; i < (*it).size(); i++) cout << (*it)[i] << ' ';
   }
   return 0;
 }

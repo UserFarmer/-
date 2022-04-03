@@ -7,29 +7,28 @@
 using namespace std;
 
 class Solution {
-public:
-    int removeElement(vector<int>& nums, int val) {
-        int fast = 0;
-        int slow = 0;
-        for (; fast < nums.size(); fast++) {
-            if(nums[fast] != val) {
-                swap(nums[fast], nums[slow]);
-                slow++;
-            }
-        }
-        return slow;
+ public:
+  int removeElement(vector<int>& nums, int val) {
+    int fast = 0;
+    int slow = 0;
+    for (; fast < nums.size(); fast++) {
+      if (nums[fast] != val) {
+        swap(nums[fast], nums[slow]);
+        slow++;
+      }
     }
+    return slow;
+  }
 };
 
 int main() {
-    Solution s;
-    vector<int> nums = {0, 1, 2, 2, 3, 0, 4, 2};
-    int val = 2;
-    int ans1;
+  Solution s;
+  vector<int> nums = {0, 1, 2, 2, 3, 0, 4, 2};
+  int val = 2;
+  int ans1;
 
-    int ans = s.removeElement(nums, val);
-    cout << ans << endl;
-    for(auto it:nums)
-        cout << it << ' ';
-    return 0;
+  int ans = s.removeElement(nums, val);
+  cout << ans << endl;
+  for (auto it : nums) cout << it << ' ';
+  return 0;
 }

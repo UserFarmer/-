@@ -12,7 +12,7 @@
 using namespace std;
 
 class Solution {
-public:
+ public:
   int lengthOfLongestSubstring(string s) {
     //滑动窗口
     unordered_set<char> hash;

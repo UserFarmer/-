@@ -14,7 +14,7 @@ struct ListNode {
 };
 
 class Solution {
-public:
+ public:
   ListNode *removeNthFromEnd(ListNode *head, int n) {
     ListNode *dum = new ListNode(0, head);
     ListNode *post = head;
